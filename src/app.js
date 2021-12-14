@@ -8,6 +8,7 @@ const { error } = require('console')
 
 const app = express()
 
+
 // defins paths for express config
 const pubPath = path.join(__dirname, '../public')
 const viewsPath = path.join(__dirname,'../templates/views')
