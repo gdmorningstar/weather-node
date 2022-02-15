@@ -34,6 +34,7 @@ app.get('/about', (req, res) =>{
     res.render('about', {
       title: 'About the Weather App',
       text: 'This weather app can be used to display the current weather in your area.',
+      text2: 'More important text goes here.',
       name: 'Gabriel M.',
       img: 'img/1.png'
     })
@@ -73,7 +74,7 @@ app.get('/weather',(req, res) =>{
 
 app.get('/help/*',(req, res) =>{
   res.render('404',{
-    title: '404 help page not found dude.',
+    title: '404 help page not found, dude.',
     text: 'No help there, dude. Gana have to try again, bro.'
   })
 })
