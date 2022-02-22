@@ -8,6 +8,7 @@ const { error } = require('console')
 
 const app = express()
 const port = process.env.PORT || 3000
+const myname = 'Gabriel. M'
 
 // defins paths for express config
 const pubPath = path.join(__dirname, '../public')
@@ -26,7 +27,7 @@ app.use(express.static(pubPath))
 app.get('', (req, res) =>{
     res.render('index', {
       title: 'Weather App',
-      name: 'Gabriel M.'  
+      myname: 'Gabriel M.'  
     })
 })
 
@@ -34,8 +35,8 @@ app.get('/about', (req, res) =>{
     res.render('about', {
       title: 'About the Weather App',
       text: 'This weather app can be used to display the current weather in your area.',
-      text2: 'More important text goes here.',
-      name: 'Gabriel M.',
+      text2: 'Created by '+ res.render.myname +'.',
+      myname: 'Gabriel M.',
       img: 'img/1.png'
     })
 })
@@ -44,7 +45,7 @@ app.get('/help', (req, res) =>{
     res.render('help', {
       title: 'Help with the Weather App',
       text: 'To search for weather in your location, enter it into the search bar bellow and press enter.',
-      name: 'Gabriel M.',
+      myname: 'Gabriel M.',
       img: 'img/1.png'
     })
 })

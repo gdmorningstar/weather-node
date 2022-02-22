@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node src/app.js"
+    "start": "node src/app.js",
+    "comment": "used by heroku to start the website"
   },
   "keywords": [],
   "author": "",
