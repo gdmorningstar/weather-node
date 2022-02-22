@@ -10,10 +10,28 @@ const forcast = (lat,long, callback) => {
         } else if(body.error) {
             callback('unable to find location.');
         }else {
+            
             const degrees = body.current.temperature;
             const feelslike = body.current.feelslike;
             const description = body.current.weather_descriptions[0];
-            callback(undefined,`It is currently ${description}, ${degrees} degrees, and it feels like ${feelslike} degrees.`);
+            const wind = body.current.wind_dir;
+            // the directions dictionary and the getDirct function can probably be moved outside of this else block. leaving it for now.
+            const directions = {
+                "N":"north",
+                "S":"south",
+                "E":"east",
+                "W":"west"
+            };
+            
+            function getDirect(windDirect,directions){
+                for ([key, value] of Object.entries(directions)){
+                    if (key == windDirect){
+                        return value
+                    }
+                }
+            };
+
+            callback(undefined,`It is currently ${description}, ${degrees} degrees, and it feels like ${feelslike} degrees. The wind is currently comming from the ${getDirect(wind,directions)}.`);
         }
     });
 }
